@@ -1,2 +1,0 @@
-class TeaSubscriptionsController < ApplicationController
-end

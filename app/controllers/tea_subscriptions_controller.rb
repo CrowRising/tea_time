@@ -1,0 +1,2 @@
+class TeaSubscriptionsController < ApplicationController
+end

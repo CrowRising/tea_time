@@ -17,11 +17,12 @@ The learning goals of this project were to
 2. install gem packages `bundle install`
 3. run `rails db:{create,migrate,seed}`
 4. check schema
+5. run `rails s` to check functionality locally
 ## Endpoints
 ```
- - POST 'api/v1/customer_subscriptions'
- - DELETE 'api/v1/customer_subscriptions
- - GET 'api/v1/customers'
+ - POST 'api/v1/customer_subscriptions?customer_id=1&subscription_id=1'
+ - PATCH 'api/v1/customer_subscriptions?customer_id=1&subscription_id=1'
+ - GET 'api/v1/customers?id=1'
 ```
 ### Versions
  - Ruby 3.2.2

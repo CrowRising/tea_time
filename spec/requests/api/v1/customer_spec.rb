@@ -17,7 +17,25 @@ RSpec.describe 'Customer API' do
             res = JSON.parse(response.body, symbolize_names: true)
 
             expect(res).to be_a(Hash)
+            expect(res).to have_key(:data)
+            expect(res[:data]).to be_a(Hash)
+            expect(res[:data]).to have_key(:id)
+            expect(res[:data][:id]).to eq(customer1.id.to_s)
+            expect(res[:data]).to have_key(:type)
+            expect(res[:data][:type]).to eq('customer')
+            expect(res[:data]).to have_key(:attributes)
+            expect(res[:data][:attributes]).to be_a(Hash)
 
+            expect(res[:data][:attributes]).to have_key(:name)
+            expect(res[:data][:attributes][:name]).to eq(customer1.name)
+            expect(res[:data][:attributes]).to have_key(:email)
+            expect(res[:data][:attributes][:email]).to eq(customer1.email)
+            expect(res[:data][:attributes]).to have_key(:active_subscriptions)
+            expect(res[:data][:attributes][:active_subscriptions]).to be_an(Array)
+            expect(res[:data][:attributes][:active_subscriptions].count).to eq(1)
+            expect(res[:data][:attributes]).to have_key(:inactive_subscriptions)
+            expect(res[:data][:attributes][:inactive_subscriptions]).to be_an(Array)
+            expect(res[:data][:attributes][:inactive_subscriptions].count).to eq(1)
         end
     end
 end

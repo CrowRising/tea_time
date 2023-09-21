@@ -177,6 +177,38 @@
           null
         ]
       },
+      "/Users/crowrising/Turing/4Mod/take_home/tea_time/spec/factories/customers.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/crowrising/Turing/4Mod/take_home/tea_time/spec/factories/subscriptions.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/crowrising/Turing/4Mod/take_home/tea_time/spec/factories/teas.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/crowrising/Turing/4Mod/take_home/tea_time/config/routes.rb": {
         "lines": [
           1,
@@ -195,6 +227,14 @@
           1,
           1,
           1,
+          null,
+          1,
+          4,
+          null,
+          null,
+          1,
+          4,
+          null,
           null
         ]
       },
@@ -214,12 +254,22 @@
           2,
           2,
           null,
+          null,
+          1,
+          2,
+          2,
+          null,
           null
         ]
       },
       "/Users/crowrising/Turing/4Mod/take_home/tea_time/app/models/customer_subscription.rb": {
         "lines": [
           1,
+          1,
+          1,
+          null,
+          1,
+          null,
           1,
           1,
           null
@@ -310,7 +360,25 @@
           1,
           null,
           1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null
@@ -347,10 +415,32 @@
           1,
           1,
           1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       }
     },
-    "timestamp": 1695247972
+    "timestamp": 1695258243
   }
 }

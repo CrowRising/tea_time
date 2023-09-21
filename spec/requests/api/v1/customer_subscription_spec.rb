@@ -46,7 +46,7 @@ RSpec.describe 'Customer Subscriptions API' do
       customer1 = Customer.create!(name: 'Barry Whyte', email: 'yourmom@email.com', password: 'test123')
       script1 = Subscription.create!(title: 'Crack', price: 10.99, frequency: 1)
       CustomerSubscription.create!(customer_id: customer1.id,
-                                   subscription_id: script1.id, status: 1)
+                                   subscription_id: script1.id)
 
       customer_script_params = {
         customer_id: customer1.id,
@@ -55,11 +55,11 @@ RSpec.describe 'Customer Subscriptions API' do
 
       post '/api/v1/customer_subscriptions', params: customer_script_params
 
-      expect(response).to be_successful
-      expect(response.status).to eq(201)
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
 
       res = JSON.parse(response.body, symbolize_names: true)
-      expect(res[:message]).to eq('Subscription is already active')
+      expect(res[:message]).to eq('Subscription already active')
     end
   end
 
@@ -80,6 +80,24 @@ RSpec.describe 'Customer Subscriptions API' do
 
       res = JSON.parse(response.body, symbolize_names: true)
       expect(res[:message]).to eq('Subscription not created')
+    end
+  end
+
+  describe 'inactivating a customer subscription' do
+    it 'can inactivate a customer subscription' do
+      customer1 = Customer.create!(name: 'Barry Whyte', email: 'yourmom@email.com', password: 'test123')
+      script1 = Subscription.create!(title: 'Crack', price: 10.99, frequency: 1)
+      CustomerSubscription.create!(customer_id: customer1.id,
+                                   subscription_id: script1.id, status: 0)
+      customer_script_params = {
+        customer_id: customer1.id,
+        subscription_id: script1.id
+      }
+
+      patch '/api/v1/customer_subscriptions', params: customer_script_params
+
+      expect(response).to be_successful
+      expect(response.status).to eq(201)
     end
   end
 end

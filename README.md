@@ -17,12 +17,49 @@ The learning goals of this project were to
 2. install gem packages `bundle install`
 3. run `rails db:{create,migrate,seed}`
 4. check schema
-5. run `rails s` to check functionality locally
+<br>
+   ![Alt text](schema.jpg)
 ## Endpoints
 ```
  - POST 'api/v1/customer_subscriptions?customer_id=1&subscription_id=1'
  - PATCH 'api/v1/customer_subscriptions?customer_id=1&subscription_id=1'
  - GET 'api/v1/customers?id=1'
+```
+## Responses
+```
+{
+    "data": {
+        "id": "1",
+        "type": "customer",
+        "attributes": {
+            "name": "Barry Whyte",
+            "email": "yourmom@email.com",
+            "password": "test123",
+            "active_subscriptions": [
+                {
+                    "id": 1,
+                    "title": "Crack",
+                    "price": 10.99,
+                    "frequency": 1
+                },
+                {
+                    "id": 3,
+                    "title": "English",
+                    "price": 30.99,
+                    "frequency": 3
+                }
+            ],
+            "inactive_subscriptions": [
+                {
+                    "id": 2,
+                    "title": "Chill",
+                    "price": 20.99,
+                    "frequency": 2
+                }
+            ]
+        }
+    }
+}
 ```
 ### Versions
  - Ruby 3.2.2

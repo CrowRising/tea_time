@@ -5,10 +5,10 @@ class Customer < ApplicationRecord
   has_many :subscriptions, through: :customer_subscriptions
 
   def active_scripts
-    subscriptions.joins(:customer_subscriptions).where('customer_subscriptions.status = ?', 0)
+    subscriptions.where('customer_subscriptions.status = ?', 0)
   end
 
   def inactive_scripts
-    subscriptions.joins(:customer_subscriptions).where('customer_subscriptions.status = ?', 1)
+    subscriptions.where('customer_subscriptions.status = ?', 1)
   end
 end

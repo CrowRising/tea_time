@@ -25,7 +25,28 @@ The learning goals of this project were to
  - PATCH 'api/v1/customer_subscriptions?customer_id=1&subscription_id=1'
  - GET 'api/v1/customers?id=1'
 ```
-## Responses
+## JSON Responses (in order of the endpoints)
+### POST
+Status 200:
+```
+{
+    "message": "Subscription created"
+}
+```
+Status 400:
+```
+{
+    "message": "Subscription already active"
+}
+```
+Status 400:
+```
+{
+    "message": "Subscription not created"
+}
+```
+### GET
+Status 200:
 ```
 {
     "data": {
@@ -59,6 +80,12 @@ The learning goals of this project were to
             ]
         }
     }
+}
+```
+Status 400:
+```
+{
+    "error": "Customer not found"
 }
 ```
 ### Versions

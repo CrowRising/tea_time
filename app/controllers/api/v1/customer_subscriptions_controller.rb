@@ -23,7 +23,7 @@ module Api
       end
 
       def update; end
-      
+
       private
 
       def customer_script_params

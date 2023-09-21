@@ -38,4 +38,19 @@ RSpec.describe 'Customer API' do
             expect(res[:data][:attributes][:inactive_subscriptions].count).to eq(1)
         end
     end
+
+    describe 'sad path' do
+        it 'returns 404 if customer not found' do
+            get '/api/v1/customers', params: {id: 1}
+
+            expect(response).to_not be_successful
+            expect(response.status).to eq(404)
+
+            res = JSON.parse(response.body, symbolize_names: true)
+
+            expect(res).to be_a(Hash)
+            expect(res).to have_key(:error)
+            expect(res[:error]).to eq('Customer not found')
+        end
+    end
 end

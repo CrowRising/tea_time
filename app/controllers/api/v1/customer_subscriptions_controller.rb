@@ -22,7 +22,19 @@ module Api
         end
       end
 
-      def update; end
+      def update
+        customer_subscription = CustomerSubscription.find_by(customer_script_params)
+        if customer_subscription
+          if customer_subscription.status == 'active'
+            customer_subscription.update(status: 'inactive')
+            render json: { message: 'Subscription cancelled' }, status: 201
+          else customer_subscription.status == 'inactive'
+            render json: { message: 'Subscription already cancelled' }, status: 400
+          end
+        else
+          render json: { message: 'Subscription not found' }, status: 404
+        end
+      end
 
       private
 

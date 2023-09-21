@@ -7,11 +7,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+TeaSubscription.destroy_all
+CustomerSubscription.destroy_all
 Customer.destroy_all
 Tea.destroy_all
 Subscription.destroy_all
-TeaSubscription.destroy_all
-CustomerSubscription.destroy_all
 
 customer1 = Customer.create!(name: 'Barry Whyte', email: 'yourmom@email.com', password:'test123')
 customer2 = Customer.create!(name: 'Gloria Stien', email: 'cheers@email.com', password:'test666')
